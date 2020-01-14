@@ -30,7 +30,21 @@ createElement.addEventListener('click', () => {
 
 //copy to clipboard
 
+copyElement.addEventListener('click', () => {
+    var textArea = document.createElement('textarea')
+    var password = resultElement.innerText
 
+    if(!password){
+        return;
+    }
+
+    textArea.value = password
+    document.body.appendChild(textArea)
+    textArea.select()
+    document.execCommand('copy')
+    textArea.remove()
+    alert("Password has been copied")
+})
 
 //create password
 
@@ -38,7 +52,7 @@ function createPassword(lower, upper, number, symbol, length) {
     // initilize password variable
     // filter out unchecked types
     // loop over length call generator function for each type
-    //add final password to the password variable and return it
+    // add final password to the password variable and return it
 
     var createPassword = ''
 
