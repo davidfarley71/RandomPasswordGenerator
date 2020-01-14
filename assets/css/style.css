@@ -25,6 +25,7 @@ body, html {
 
 .output {
     max-width: 100% -40rem;
+    background-color: #d5d6dc3f;
 }
 
 .btn {
