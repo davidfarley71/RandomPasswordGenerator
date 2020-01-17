@@ -7,7 +7,8 @@ var numberElement = document.getElementById('number')
 var symbolElement = document.getElementById('symbol')
 var createElement = document.getElementById('create')
 var copyElement = document.getElementById('copy')
-
+var img1 = document.getElementById('img1')
+var fireworks = document.getElementById('fireworks');
 //object containing functions
 var options = {
     lower: lowerCaseLetters,
@@ -26,6 +27,7 @@ createElement.addEventListener('click', () => {
     var isSymbol = symbolElement.checked
 
     resultElement.innerText = createPassword(isLower, isUpper, isNumber, isSymbol, length)
+   
 })
 
 //copy to clipboard
@@ -54,7 +56,7 @@ function createPassword(lower, upper, number, symbol, length) {
     // loop over length call generator function for each type
     // add final password to the password variable and return it
 
-    var createPassword = ''
+    var createdPasswordvar = ''
 
     var checkedCount = lower + upper + number + symbol
 
@@ -67,17 +69,23 @@ function createPassword(lower, upper, number, symbol, length) {
     if(checkedCount === 0){
         return 'please select an option'
     }
-
+    //change background image
+    img1.style.backgroundImage = "url('assets/images/happy.jpg')";
+    //show copy button
+    copyElement.style.display = "inline";
+    //turn on the fireworks
+    // document.getElementById("willbefireworks").className = 'pyro';
+    fireworks.className = 'pyro'
     for (let i = 0; i < length; i += checkedCount){
         checkedArr.forEach(type => {
             var optionName = Object.keys(type)[0]
             //console.log(optionName)
 
-            createPassword += options[optionName]();
+            createdPasswordvar += options[optionName]();
         });
     }
 
-    var fullPassword = createPassword.slice(0, length)
+    var fullPassword = createdPasswordvar.slice(0, length)
     return fullPassword
 }
 
