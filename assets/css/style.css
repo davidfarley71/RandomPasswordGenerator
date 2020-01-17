@@ -33,6 +33,13 @@ html {
   background-color: #484446;
   display: none;
 }
+
+.tutorial{
+  position: absolute;
+  bottom: 10px;
+  
+}
+
 body {
   margin: 0;
   padding: 0;
